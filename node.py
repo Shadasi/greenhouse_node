@@ -11,6 +11,7 @@ from requests.auth import HTTPBasicAuth
 load_dotenv(find_dotenv())
 
 API_URL = os.environ.get("API_URL")
+SENSOR_NAME = os.environ.get("SENSOR_NAME")
 
 
 headers = {
@@ -23,11 +24,11 @@ i2cbus = smbus2.SMBus(1)
 time.sleep(0.5)
 
 def PostTemp(temp):
-    response = requests.request("POST", API_URL + 'temp', headers=headers, data=json.dumps({"temp": temp}))
+    response = requests.request("POST", API_URL + 'temp', headers=headers, data=json.dumps({"temp": temp, "sensorName": SENSOR_NAME, "timestamp": time.time()}))
     print(response)
 
 def PostHumidity(humidity):
-    response = requests.request("POST", API_URL + 'humidity', headers=headers, data=json.dumps({"humidity": humidity}))
+    response = requests.request("POST", API_URL + 'humidity', headers=headers, data=json.dumps({"humidity": humidity, "sensorName": SENSOR_NAME, "timestamp": time.time()}))
     print(response)
 
 def readTempAndHumididty():
