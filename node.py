@@ -23,11 +23,11 @@ i2cbus = smbus2.SMBus(1)
 time.sleep(0.5)
 
 def PostTemp(temp):
-    response = requests.request("POST", config.API_URL + 'temp', headers=headers, data=json.dumps({"temp": temp}))
+    response = requests.request("POST", API_URL + 'temp', headers=headers, data=json.dumps({"temp": temp}))
     print(response)
 
 def PostHumidity(humidity):
-    response = requests.request("POST", config.API_URL + 'humidity', headers=headers, data=json.dumps({"humidity": humidity}))
+    response = requests.request("POST", API_URL + 'humidity', headers=headers, data=json.dumps({"humidity": humidity}))
     print(response)
 
 def readTempAndHumididty():
