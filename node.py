@@ -5,10 +5,13 @@ import os
 import requests
 import json
 
-from dotenv import dotenv_values
+from dotenv import load_dotenv, find_dotenv
 from requests.auth import HTTPBasicAuth
 
-config = dotenv_values(".env")
+load_dotenv(find_dotenv())
+
+API_URL = os.environ.get("API_URL")
+
 
 headers = {
     'Content-Type': 'application/json'
