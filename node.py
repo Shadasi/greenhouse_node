@@ -5,7 +5,7 @@ import os
 import requests
 import json
 
-from dotenv import load_dotenv()
+from dotenv import load_dotenv
 from requests.auth import HTTPBasicAuth
 
 load_dotenv()
