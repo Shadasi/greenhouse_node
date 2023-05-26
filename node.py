@@ -12,7 +12,7 @@ load_dotenv(find_dotenv())
 
 API_URL = os.environ.get("API_URL")
 SENSOR_NAME = os.environ.get("SENSOR_NAME")
-POLL_INTERVAL = os.environment.get("POLL_INTERVAL")
+POLL_INTERVAL = os.environ.get("POLL_INTERVAL")
 
 
 headers = {
