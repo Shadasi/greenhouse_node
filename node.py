@@ -59,7 +59,7 @@ def readTempAndHumididty():
 def __main__():
     while True:
         readTempAndHumididty()
-        time.sleep(POLL_INTERVAL)
+        time.sleep(int(POLL_INTERVAL))
 
 __main__()
 
