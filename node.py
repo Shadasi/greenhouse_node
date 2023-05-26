@@ -12,6 +12,7 @@ load_dotenv(find_dotenv())
 
 API_URL = os.environ.get("API_URL")
 SENSOR_NAME = os.environ.get("SENSOR_NAME")
+POLL_INTERVAL = os.environment.get("POLL_INTERVAL")
 
 
 headers = {
@@ -58,7 +59,7 @@ def readTempAndHumididty():
 def __main__():
     while True:
         readTempAndHumididty()
-        time.sleep(10)
+        time.sleep(POLL_INTERVAL)
 
 __main__()
 
