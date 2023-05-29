@@ -50,7 +50,7 @@ def readTempAndHumididty():
     Hraw = ((data[3] & 0xf0) >> 4) + (data[1] << 12) + (data[2] << 4)
     humidity = 100*float(Hraw)/2**20
     print("%.1f" % fahrenheit)
-    print(humidity)
+    print("%.1f" % humidity)
 
     PostTemp(fahrenheit)
     time.sleep(0.5)
