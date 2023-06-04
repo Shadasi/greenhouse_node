@@ -31,6 +31,7 @@ def PostTemp(temp):
             print(response)
         except Exception as e:
             print(e)
+            time.sleep(0.5)
             continue
         break
 
@@ -41,6 +42,7 @@ def PostHumidity(humidity):
             print(response)
         except Exception as e: 
             print(e)
+            time.sleep(0.5)
             continue
         break
 
