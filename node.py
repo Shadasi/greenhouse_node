@@ -25,12 +25,24 @@ i2cbus = smbus2.SMBus(1)
 time.sleep(0.5)
 
 def PostTemp(temp):
-    response = requests.request("POST", API_URL + 'temp', headers=headers, data=json.dumps({"temp": temp, "sensorName": SENSOR_NAME, "timestamp": int(time.time())}))
-    print(response)
+    while True:
+        try:
+            response = requests.request("POST", API_URL + 'temp', headers=headers, data=json.dumps({"temp": temp, "sensorName": SENSOR_NAME, "timestamp": int(time.time())}))
+            print(response)
+        except Exception as e:
+            print(e)
+            continue
+        break
 
 def PostHumidity(humidity):
-    response = requests.request("POST", API_URL + 'humidity', headers=headers, data=json.dumps({"humidity": humidity, "sensorName": SENSOR_NAME, "timestamp": int(time.time())}))
-    print(response)
+    while True:
+        try:
+            response = requests.request("POST", API_URL + 'humidity', headers=headers, data=json.dumps({"humidity": humidity, "sensorName": SENSOR_NAME, "timestamp": int(time.time())}))
+            print(response)
+        except Exception as e: 
+            print(e)
+            continue
+        break
 
 def readTempAndHumididty():
     # credit: https://raspberrypi.stackexchange.com/a/133487
